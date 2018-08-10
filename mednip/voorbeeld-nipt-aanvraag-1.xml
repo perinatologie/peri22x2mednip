@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MEDNIP_1>
+   <envelope envelope.edisyntax="EDIFACT"
+             envelope.acknowledgementrequest="No"
+             envelope.testindicator="Yes"/>
+   <header EDI-name="UNH">
+      <header.messageidentifier messageidentifier.type="MEDNIP" messageidentifier.version="1"/>
+   </header>
+   <afzender>
+      <afzender.persoonsnaam/>
+   </afzender>
+   <datumtijd EDI-name="DET" EDI-index="2">2018-08-10T12:22:18.305+02:00</datumtijd>
+   <Labaanvraag>
+      <Labaanvraag.Afzender>
+         <telecom>020-7777777</telecom>
+         <name>Jansen, Baby2Go</name>
+      </Labaanvraag.Afzender>
+      <Labaanvraag.Ontvanger>
+         <name>Peridos productie</name>
+      </Labaanvraag.Ontvanger>
+      <Labaanvraag.Zorgaanbieder>
+         <ZorgaanbiederType>GeenInformatie</ZorgaanbiederType>
+         <Naam>Baby2Go</Naam>
+         <Adres/>
+      </Labaanvraag.Zorgaanbieder>
+      <Labaanvraag.Zorgverlener>
+         <ZorgverlenerType>GeenInformatie</ZorgverlenerType>
+      </Labaanvraag.Zorgverlener>
+      <Labaanvraag.Patient>
+         <BSN>900000004</BSN>
+         <Geboortedatum>
+            <Datum>1974-04-03</Datum>
+            <TimeZone>GeenInformatie</TimeZone>
+         </Geboortedatum>
+         <Voorletters>A.B.</Voorletters>
+         <Voorvoegsel>de</Voorvoegsel>
+         <Achternaam>Tester</Achternaam>
+         <Adres>
+            <Straat>Testweg</Straat>
+            <Huisnummer>
+               <Huisnummer>999</Huisnummer>
+               <Toevoeging>t/o 12</Toevoeging>
+            </Huisnummer>
+            <Postcode>1234AB</Postcode>
+            <Plaats>Testhuizen</Plaats>
+            <Land>NL</Land>
+         </Adres>
+         <Verzekeringsnummer>12341234</Verzekeringsnummer>
+         <Telefoonnummer>GeenInformatie</Telefoonnummer>
+      </Labaanvraag.Patient>
+      <Labaanvraag.Zwangerschap>
+         <LengteInCm>171</LengteInCm>
+         <GewichtInKg>78.5</GewichtInKg>
+         <ATermeDatum>
+            <Datum>2016-08-03</Datum>
+            <TimeZone>GeenInformatie</TimeZone>
+         </ATermeDatum>
+         <Hoeveelling>2</Hoeveelling>
+         <Amnioniciteit>Monoamniotisch</Amnioniciteit>
+         <Chorioniciteit>Monochoriaal</Chorioniciteit>
+         <EerdereTrisomie>GeenInformatie</EerdereTrisomie>
+         <CombinatietestKansGroterDan200>Nee</CombinatietestKansGroterDan200>
+         <RobertsoniaanseTranslocatieZwangere>Nee</RobertsoniaanseTranslocatieZwangere>
+         <RobertsoniaanseTranslocatiePartner>Ja</RobertsoniaanseTranslocatiePartner>
+      </Labaanvraag.Zwangerschap>
+      <Labaanvraag.NIPT>
+         <Peridoscode/>
+         <Laboratorium/>
+         <ExclusiecriteriaGeenVanAlleVanToepassing>Ja</ExclusiecriteriaGeenVanAlleVanToepassing>
+         <KeuzeT21T18T13>Ja</KeuzeT21T18T13>
+         <KeuzeNevenbevindingen>Nee</KeuzeNevenbevindingen>
+         <ToestemmingsformulierGetekend>Ja</ToestemmingsformulierGetekend>
+         <ToestemmingBewarenRestmateriaalNaderGebruik>Nee</ToestemmingBewarenRestmateriaalNaderGebruik>
+      </Labaanvraag.NIPT>
+   </Labaanvraag>
+</MEDNIP_1>

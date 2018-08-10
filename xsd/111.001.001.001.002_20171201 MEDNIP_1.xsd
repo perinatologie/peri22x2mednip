@@ -1,0 +1,992 @@
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by F Geerdink (Vrumun) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+		<xs:documentation>
+		 -- ZorgMail XML MEDNIP_1 xsd-version 1.0 --
+		 -- Copyright (C) 2017 --
+		 -- Bericht Labaanvraag NIPT
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="MEDNIP_1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="email" minOccurs="0"/>
+				<xs:element ref="envelope"/>
+				<xs:element ref="header"/>
+				<xs:element ref="afzender"/>
+				<xs:element ref="datumtijd"/>
+				<xs:element ref="patientidentificatie" minOccurs="0"/>
+				<xs:element ref="patientadresgegevens" minOccurs="0"/>
+				<xs:element ref="Labaanvraag"/>
+				<xs:element ref="ontvanger" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.huisnummer">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..8"/>
+			<xs:attribute name="EDI-index" fixed="5"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.land">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..20"/>
+			<xs:attribute name="EDI-index" fixed="10"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.postbus">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="n1..8"/>
+			<xs:attribute name="EDI-index" fixed="6"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.postcode">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..9"/>
+			<xs:attribute name="EDI-index" fixed="8"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.provincie">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..20"/>
+			<xs:attribute name="EDI-index" fixed="9"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.straatnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..30"/>
+			<xs:attribute name="EDI-index" fixed="4"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adres.woonplaats">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..20"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-index" fixed="7"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="afzender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="afzender.persoonsnaam"/>
+				<xs:element ref="afzender.afdeling" minOccurs="0"/>
+				<xs:element ref="afzender.instellingsnaam" minOccurs="0"/>
+				<xs:element ref="afzender.adres" minOccurs="0"/>
+				<xs:element ref="afzender.telefoonnummer" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-maximum" fixed="1"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-name" fixed="GGA"/>
+			<xs:attribute name="EDI-index" fixed="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="afzender.adres">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="adres.straatnaam" minOccurs="0"/>
+				<xs:element ref="adres.huisnummer" minOccurs="0"/>
+				<xs:element ref="adres.postbus" minOccurs="0"/>
+				<xs:element ref="adres.woonplaats"/>
+				<xs:element ref="adres.postcode" minOccurs="0"/>
+				<xs:element ref="adres.provincie" minOccurs="0"/>
+				<xs:element ref="adres.land" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-index" fixed="3"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="afzender.afdeling">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..70"/>
+			<xs:attribute name="EDI-index" fixed="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="afzender.instellingsnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..70"/>
+			<xs:attribute name="EDI-index" fixed="2"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="afzender.persoonsnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..40"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-index" fixed="0"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="afzender.telefoonnummer">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..20"/>
+			<xs:attribute name="EDI-index" fixed="11"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="datumtijd">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-maximum" fixed="1"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-name" fixed="DET"/>
+			<xs:attribute name="EDI-index" fixed="2"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="email">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="email.receivedate" minOccurs="0"/>
+				<xs:element ref="email.subject"/>
+				<xs:element ref="email.from" minOccurs="0"/>
+				<xs:element ref="email.to" minOccurs="0"/>
+				<xs:element ref="email.priority" minOccurs="0"/>
+				<xs:element ref="email.sensitivity" minOccurs="0"/>
+				<xs:element ref="email.reply-to" minOccurs="0"/>
+				<xs:element ref="email.return-receipt-to" minOccurs="0"/>
+				<xs:element ref="email.disposition-notification-to" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="email.disposition-notification-to">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.from">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.priority">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.receivedate">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.reply-to">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.return-receipt-to">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.sensitivity">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.subject">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="email.to">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="envelope">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="envelope.senderidentifier" minOccurs="0"/>
+				<xs:element ref="envelope.senderidqualifier" minOccurs="0"/>
+				<xs:element ref="envelope.senderaddressforreverserouting" minOccurs="0"/>
+				<xs:element ref="envelope.recipientidentifier" minOccurs="0"/>
+				<xs:element ref="envelope.recipientidqualifier" minOccurs="0"/>
+				<xs:element ref="envelope.recipientroutingaddress" minOccurs="0"/>
+				<xs:element ref="envelope.datetimeofpreparation" minOccurs="0"/>
+				<xs:element ref="envelope.recipientsreference" minOccurs="0"/>
+				<xs:element ref="envelope.recipientsreferencequalifier" minOccurs="0"/>
+				<xs:element ref="envelope.applicationreference" minOccurs="0"/>
+				<xs:element ref="envelope.processingprioritycode" minOccurs="0"/>
+				<xs:element ref="envelope.communicationsagreementid" minOccurs="0"/>
+				<xs:element ref="envelope.applicationsenderidentification" minOccurs="0"/>
+				<xs:element ref="envelope.applicationsenderidqualifier" minOccurs="0"/>
+				<xs:element ref="envelope.applicationrecipientidentification" minOccurs="0"/>
+				<xs:element ref="envelope.applicationrecipientidqualifier" minOccurs="0"/>
+				<xs:element ref="envelope.applicationpassword" minOccurs="0"/>
+				<xs:element ref="envelope.applicationdatetimeofpreparation" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="envelope.edisyntax" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="EDIFACT"/>
+						<xs:enumeration value="X12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="envelope.lastofinterchange" default="Yes">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="envelope.lastoffunctionalgroup" default="Yes">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="envelope.syntaxid"/>
+			<xs:attribute name="envelope.syntaxversion"/>
+			<xs:attribute name="envelope.controlreference"/>
+			<xs:attribute name="envelope.functionalgroupreference"/>
+			<xs:attribute name="envelope.acknowledgementrequest" default="No">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="envelope.testindicator" default="No">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.applicationdatetimeofpreparation">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="envelope.applicationpassword">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..14"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.applicationrecipientidentification">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..35"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.applicationrecipientidqualifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..4"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.applicationreference">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..14"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.applicationsenderidentification">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..35"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.applicationsenderidqualifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..4"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.communicationsagreementid">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..35"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.datetimeofpreparation">
+		<xs:complexType mixed="true"/>
+	</xs:element>
+	<xs:element name="envelope.processingprioritycode">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.recipientidentifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..35"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.recipientidqualifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..4"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.recipientroutingaddress">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..14"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.recipientsreference">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..14"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.recipientsreferencequalifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an2..2"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.senderaddressforreverserouting">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..14"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.senderidentifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..35"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="envelope.senderidqualifier">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..4"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="header.messageidentifier"/>
+				<xs:element ref="header.commonaccessreference" minOccurs="0"/>
+				<xs:element ref="header.statusoftransfer" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-name" fixed="UNH"/>
+			<xs:attribute name="EDI-maximum" fixed="1"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="header.reference"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header.commonaccessreference">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..35"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header.messageidentifier">
+		<xs:complexType>
+			<xs:attribute name="messageidentifier.type" fixed="MEDNIP"/>
+			<xs:attribute name="messageidentifier.version" fixed="1"/>
+			<xs:attribute name="messageidentifier.release"/>
+			<xs:attribute name="messageidentifier.controllingagency"/>
+			<xs:attribute name="messageidentifier.assignedassociation"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header.statusoftransfer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="statusoftransfer.sequence"/>
+				<xs:element ref="statusoftransfer.firstandlast" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ontvanger">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ontvanger.persoonsnaam"/>
+				<xs:element ref="ontvanger.afdeling" minOccurs="0"/>
+				<xs:element ref="ontvanger.instellingsnaam" minOccurs="0"/>
+				<xs:element ref="ontvanger.adres" minOccurs="0"/>
+				<xs:element ref="ontvanger.telefoonnummer" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-maximum" fixed="1"/>
+			<xs:attribute name="EDI-name" fixed="GGO"/>
+			<xs:attribute name="EDI-index" fixed="6"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ontvanger.adres">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="adres.straatnaam" minOccurs="0"/>
+				<xs:element ref="adres.huisnummer" minOccurs="0"/>
+				<xs:element ref="adres.postbus" minOccurs="0"/>
+				<xs:element ref="adres.woonplaats"/>
+				<xs:element ref="adres.postcode" minOccurs="0"/>
+				<xs:element ref="adres.provincie" minOccurs="0"/>
+				<xs:element ref="adres.land" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-index" fixed="3"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ontvanger.afdeling">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..70"/>
+			<xs:attribute name="EDI-index" fixed="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ontvanger.instellingsnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..70"/>
+			<xs:attribute name="EDI-index" fixed="2"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ontvanger.persoonsnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..40"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-index" fixed="0"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ontvanger.telefoonnummer">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..20"/>
+			<xs:attribute name="EDI-index" fixed="11"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientadresgegevens">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="patientadresgegevens.adres"/>
+				<xs:element ref="patientadresgegevens.telefoonnummer" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-maximum" fixed="1"/>
+			<xs:attribute name="EDI-name" fixed="PAD"/>
+			<xs:attribute name="EDI-index" fixed="4"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientadresgegevens.adres">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="adres.straatnaam" minOccurs="0"/>
+				<xs:element ref="adres.huisnummer" minOccurs="0"/>
+				<xs:element ref="adres.postbus" minOccurs="0"/>
+				<xs:element ref="adres.woonplaats"/>
+				<xs:element ref="adres.postcode" minOccurs="0"/>
+				<xs:element ref="adres.provincie" minOccurs="0"/>
+				<xs:element ref="adres.land" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-index" fixed="0"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientadresgegevens.telefoonnummer">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..20"/>
+			<xs:attribute name="EDI-index" fixed="8"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientidentificatie">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="patientidentificatie.geboortedatum"/>
+				<xs:element ref="patientidentificatie.patientnaam"/>
+				<xs:element ref="patientidentificatie.identificatienummer1" minOccurs="0"/>
+				<xs:element ref="patientidentificatie.identificatienummer2" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-maximum" fixed="1"/>
+			<xs:attribute name="EDI-name" fixed="PID"/>
+			<xs:attribute name="EDI-index" fixed="3"/>
+			<xs:attribute name="patientidentificatie.geslacht" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Onbekend"/>
+						<xs:enumeration value="Man"/>
+						<xs:enumeration value="Vrouw"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientidentificatie.geboortedatum">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-index" fixed="0"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientidentificatie.identificatienummer1">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..12"/>
+			<xs:attribute name="EDI-index" fixed="12"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientidentificatie.identificatienummer2">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="an1..12"/>
+			<xs:attribute name="EDI-index" fixed="13"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientidentificatie.patientnaam">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="patientnaam.achternaam" minOccurs="0"/>
+				<xs:element ref="patientnaam.voorvoegsels" minOccurs="0"/>
+				<xs:element ref="patientnaam.meisjesnaam" minOccurs="0"/>
+				<xs:element ref="patientnaam.voorvoegselsmeisjesnaam" minOccurs="0"/>
+				<xs:element ref="patientnaam.voornaam" minOccurs="0"/>
+				<xs:element ref="patientnaam.voorletters" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+			<xs:attribute name="EDI-index" fixed="5"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientnaam.achternaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..30"/>
+			<xs:attribute name="EDI-index" fixed="6"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientnaam.meisjesnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..30"/>
+			<xs:attribute name="EDI-index" fixed="8"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientnaam.voorletters">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..8"/>
+			<xs:attribute name="EDI-index" fixed="11"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientnaam.voornaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..12"/>
+			<xs:attribute name="EDI-index" fixed="10"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientnaam.voorvoegsels">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..8"/>
+			<xs:attribute name="EDI-index" fixed="7"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patientnaam.voorvoegselsmeisjesnaam">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..8"/>
+			<xs:attribute name="EDI-index" fixed="9"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="statusoftransfer.firstandlast">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="a1..1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="statusoftransfer.sequence">
+		<xs:complexType mixed="true">
+			<xs:attribute name="EDI-constraints" fixed="n1..2"/>
+			<xs:attribute name="EDI-mandatory" fixed="yes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="AmnioniciteitEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Monoamniotisch"/>
+			<xs:enumeration value="Diamniotisch"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ChorioniciteitEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Monochoriaal"/>
+			<xs:enumeration value="Dichoriaal"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CombinatietestKansGroterDan200Enum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Ja"/>
+			<xs:enumeration value="Nee"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EerdereTrisomieEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Ja"/>
+			<xs:enumeration value="Nee"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EtniciteitEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Onbekend"/>
+			<xs:enumeration value="NoordAfrikaans"/>
+			<xs:enumeration value="OverigAfrikaans"/>
+			<xs:enumeration value="Turks"/>
+			<xs:enumeration value="Aziatisch"/>
+			<xs:enumeration value="Overig"/>
+			<xs:enumeration value="Kaukasisch"/>
+			<xs:enumeration value="Hindoestaans"/>
+			<xs:enumeration value="LatijnsAmerikaans"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GeslachtEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Onbekend"/>
+			<xs:enumeration value="NietTeBeoordelen"/>
+			<xs:enumeration value="Vrouw"/>
+			<xs:enumeration value="Man"/>
+			<xs:enumeration value="Meisje"/>
+			<xs:enumeration value="Jongen"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HuisnummerAanduidingEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Tegenover"/>
+			<xs:enumeration value="Bij"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JaNeeEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Ja"/>
+			<xs:enumeration value="Nee"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JaNeeOnbekendEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Onbekend"/>
+			<xs:enumeration value="Ja"/>
+			<xs:enumeration value="Nee"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RobertsoniaanseTranslocatieZwangereEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Ja"/>
+			<xs:enumeration value="Nee"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RobertsoniaanseTranslocatiePartnerEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Ja"/>
+			<xs:enumeration value="Nee"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ZorgaanbiederTypeEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Onbekend"/>
+			<xs:enumeration value="Huisartspraktijk"/>
+			<xs:enumeration value="Verloskundigenpraktijk"/>
+			<xs:enumeration value="Ziekenhuis"/>
+			<xs:enumeration value="Echocentrum"/>
+			<xs:enumeration value="Laboratorium"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ZorgverlenerTypeEnum_t">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeenInformatie"/>
+			<xs:enumeration value="Onbekend"/>
+			<xs:enumeration value="Arts"/>
+			<xs:enumeration value="Huisarts"/>
+			<xs:enumeration value="Kinderarts"/>
+			<xs:enumeration value="Gynaecoloog"/>
+			<xs:enumeration value="Obstetricus"/>
+			<xs:enumeration value="Verloskundige"/>
+			<xs:enumeration value="Echoscopist"/>
+			<xs:enumeration value="Analist"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="OID_t">
+		<xs:sequence>
+			<xs:element name="root" type="xs:string"/>
+			<xs:element name="extension" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Datum_t">
+		<xs:sequence>
+			<xs:element name="Datum" type="xs:date"/>
+			<xs:element name="TimeZone" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Tijd_t">
+		<xs:sequence>
+			<xs:element name="Tijd" type="xs:time"/>
+			<xs:element name="TimeZone" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Huisnumer_t -->
+	<xs:complexType name="Huisnummer_t">
+		<xs:sequence>
+			<xs:element name="Huisnummer" type="xs:int" minOccurs="0"/>
+			<xs:element name="Huisletter" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Toevoeging" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Aanduiding" type="HuisnummerAanduidingEnum_t" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Adres_t -->
+	<xs:complexType name="Adres_t">
+		<xs:sequence>
+			<xs:element name="Straat" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Huisnummer" type="Huisnummer_t" minOccurs="0"/>
+			<xs:element name="Postcode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PostcodeBuitenland" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Plaats" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Gemeente" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Land" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Sender_t">
+		<xs:sequence>
+			<xs:element name="telecom" type="xs:string"/>
+			<xs:element name="id" type="OID_t" minOccurs="0"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Receiver_t">
+		<xs:sequence>
+			<xs:element name="id" type="OID_t" minOccurs="0"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zorgaanbieder_t">
+		<xs:sequence>
+			<xs:element name="ZorgaanbiederType" type="ZorgaanbiederTypeEnum_t"/>
+			<xs:element name="Naam">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Adres" type="Adres_t"/>
+			<xs:element name="OID" type="OID_t" minOccurs="0"/>
+			<xs:element name="LVR" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="URA" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AGB" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Zorgmail" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zorgverlener_t">
+		<xs:sequence>
+			<xs:element name="ZorgverlenerType" type="ZorgverlenerTypeEnum_t"/>
+			<xs:element name="Voorletters" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Voorvoegsel" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Achternaam" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Naam" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="256"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LVR" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AGB" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UZI" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Patient -->
+	<xs:complexType name="Patient_t">
+		<xs:sequence>
+			<xs:element name="BSN">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="9"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Geboortedatum" type="Datum_t" minOccurs="1"/>
+			<xs:element name="Geboorteland" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Geboorteplaats" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Geslacht" type="GeslachtEnum_t" minOccurs="0"/>
+			<xs:element name="Voorletters" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Voorvoegsel" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Achternaam" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Adres" type="Adres_t" minOccurs="1"/>
+			<xs:element name="EMail" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Etniciteit" type="EtniciteitEnum_t" minOccurs="0"/>
+			<xs:element name="Verzekeringsnummer" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Telefoonnummer" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="16"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zwangerschap_t">
+		<xs:sequence>
+			<xs:element name="Zwangerschapsnummer" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="16"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LengteInCm" type="xs:int" minOccurs="1"/>
+			<xs:element name="GewichtInKg" type="xs:decimal" minOccurs="1"/>
+			<xs:element name="ATermeDatum" type="Datum_t" minOccurs="1"/>
+			<xs:element name="Hoeveelling" type="xs:int" minOccurs="1"/>
+			<xs:element name="Amnioniciteit" type="AmnioniciteitEnum_t" minOccurs="1"/>
+			<xs:element name="Chorioniciteit" type="ChorioniciteitEnum_t" minOccurs="1"/>
+			<xs:element name="EerdereTrisomie" type="EerdereTrisomieEnum_t" minOccurs="1"/>
+			<xs:element name="CombinatietestKansGroterDan200" type="JaNeeOnbekendEnum_t" minOccurs="1"/>
+			<xs:element name="RobertsoniaanseTranslocatieZwangere" type="JaNeeOnbekendEnum_t" minOccurs="1"/>
+			<xs:element name="RobertsoniaanseTranslocatiePartner" type="JaNeeOnbekendEnum_t" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NIPT_t">
+		<xs:sequence>
+			<xs:element name="Peridoscode" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Laboratorium" type="xs:string" minOccurs="1"/>
+			<xs:element name="ExclusiecriteriaGeenVanAlleVanToepassing" type="JaNeeEnum_t" minOccurs="1"/>
+			<xs:element name="KeuzeT21T18T13" type="JaNeeEnum_t" minOccurs="1"/>
+			<xs:element name="KeuzeNevenbevindingen" type="JaNeeEnum_t" minOccurs="1"/>
+			<xs:element name="ToestemmingsformulierGetekend" type="JaNeeEnum_t" minOccurs="1"/>
+			<xs:element name="ToestemmingBewarenRestmateriaalNaderGebruik" type="JaNeeEnum_t" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Labaanvraag.Afzender" type="Sender_t"/>
+	<xs:element name="Labaanvraag.Ontvanger" type="Receiver_t"/>
+	<xs:element name="Labaanvraag.Zorgaanbieder" type="Zorgaanbieder_t"/>
+	<xs:element name="Labaanvraag.Zorgverlener" type="Zorgverlener_t"/>
+	<xs:element name="Labaanvraag.Patient" type="Patient_t"/>
+	<xs:element name="Labaanvraag.Zwangerschap" type="Zwangerschap_t"/>
+	<xs:element name="Labaanvraag.NIPT" type="NIPT_t"/>
+	
+	<!-- Labaanvraag -->
+	<xs:element name="Labaanvraag">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Labaanvraag.Afzender" minOccurs="1"/>
+				<xs:element ref="Labaanvraag.Ontvanger" minOccurs="1"/>
+				<xs:element ref="Labaanvraag.Zorgaanbieder" minOccurs="1"/>
+				<xs:element ref="Labaanvraag.Zorgverlener" minOccurs="1"/>
+				<xs:element ref="Labaanvraag.Patient" minOccurs="1"/>
+				<xs:element ref="Labaanvraag.Zwangerschap" minOccurs="1"/>
+				<xs:element ref="Labaanvraag.NIPT" minOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

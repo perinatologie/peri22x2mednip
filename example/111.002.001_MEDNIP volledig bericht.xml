@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MEDNIP_1>
+  <email>
+    <email.receivedate />
+    <email.subject />
+    <email.from />
+    <email.to />
+    <email.priority />
+    <email.sensitivity />
+    <email.reply-to />
+    <email.return-receipt-to />
+    <email.disposition-notification-to />
+  </email>
+  <envelope envelope.edisyntax="EDIFACT" envelope.lastofinterchange="Yes" envelope.lastoffunctionalgroup="Yes" envelope.syntaxid="???" envelope.syntaxversion="???" envelope.controlreference="???" envelope.functionalgroupreference="???" envelope.acknowledgementrequest="Yes" envelope.testindicator="Yes">
+    <envelope.senderidentifier EDI-constraints="an1..35" EDI-mandatory="yes" />
+    <envelope.senderidqualifier EDI-constraints="an1..4" />
+    <envelope.senderaddressforreverserouting EDI-constraints="an1..14" />
+    <envelope.recipientidentifier EDI-constraints="an1..35" EDI-mandatory="yes" />
+    <envelope.recipientidqualifier EDI-constraints="an1..4" />
+    <envelope.recipientroutingaddress EDI-constraints="an1..14" />
+    <envelope.datetimeofpreparation />
+    <envelope.recipientsreference EDI-constraints="an1..14" />
+    <envelope.recipientsreferencequalifier EDI-constraints="an2..2" />
+    <envelope.applicationreference EDI-constraints="an1..14" />
+    <envelope.processingprioritycode EDI-constraints="a1..1" />
+    <envelope.communicationsagreementid EDI-constraints="an1..35" />
+    <envelope.applicationsenderidentification EDI-constraints="an1..35" />
+    <envelope.applicationsenderidqualifier EDI-constraints="an1..4" />
+    <envelope.applicationrecipientidentification EDI-constraints="an1..35" />
+    <envelope.applicationrecipientidqualifier EDI-constraints="an1..4" />
+    <envelope.applicationpassword EDI-constraints="an1..14" />
+    <envelope.applicationdatetimeofpreparation />
+  </envelope>
+  <header EDI-name="UNH" EDI-maximum="1" EDI-mandatory="yes" header.reference="???">
+    <header.messageidentifier messageidentifier.type="MEDECH" messageidentifier.version="1" messageidentifier.release="???" messageidentifier.controllingagency="???" messageidentifier.assignedassociation="???" EDI-mandatory="yes" />
+    <header.commonaccessreference EDI-constraints="an1..35" />
+    <header.statusoftransfer>
+      <statusoftransfer.sequence EDI-constraints="n1..2" EDI-mandatory="yes" />
+      <statusoftransfer.firstandlast EDI-constraints="a1..1" />
+    </header.statusoftransfer>
+  </header>
+  <afzender EDI-maximum="1" EDI-mandatory="yes" EDI-name="GGA" EDI-index="1">
+    <afzender.persoonsnaam EDI-constraints="a1..40" EDI-mandatory="yes" EDI-index="0" />
+    <afzender.afdeling EDI-constraints="an1..70" EDI-index="1" />
+    <afzender.instellingsnaam EDI-constraints="a1..70" EDI-index="2" />
+    <afzender.adres EDI-index="3">
+      <adres.straatnaam EDI-constraints="an1..30" EDI-index="4" />
+      <adres.huisnummer EDI-constraints="an1..8" EDI-index="5" />
+      <adres.postbus EDI-constraints="n1..8" EDI-index="6" />
+      <adres.woonplaats EDI-constraints="a1..20" EDI-mandatory="yes" EDI-index="7" />
+      <adres.postcode EDI-constraints="an1..9" EDI-index="8" />
+      <adres.provincie EDI-constraints="a1..20" EDI-index="9" />
+      <adres.land EDI-constraints="a1..20" EDI-index="10" />
+    </afzender.adres>
+    <afzender.telefoonnummer EDI-constraints="an1..20" EDI-index="11" />
+  </afzender>
+  <datumtijd EDI-maximum="1" EDI-mandatory="yes" EDI-name="DET" EDI-index="2" />
+  <patientidentificatie EDI-maximum="1" EDI-name="PID" EDI-index="3" patientidentificatie.geslacht="Onbekend">
+    <patientidentificatie.geboortedatum EDI-mandatory="yes" EDI-index="0" />
+    <patientidentificatie.patientnaam EDI-mandatory="yes" EDI-index="5">
+      <patientnaam.achternaam EDI-constraints="a1..30" EDI-index="6" />
+      <patientnaam.voorvoegsels EDI-constraints="a1..8" EDI-index="7" />
+      <patientnaam.meisjesnaam EDI-constraints="a1..30" EDI-index="8" />
+      <patientnaam.voorvoegselsmeisjesnaam EDI-constraints="a1..8" EDI-index="9" />
+      <patientnaam.voornaam EDI-constraints="a1..12" EDI-index="10" />
+      <patientnaam.voorletters EDI-constraints="a1..8" EDI-index="11" />
+    </patientidentificatie.patientnaam>
+    <patientidentificatie.identificatienummer1 EDI-constraints="an1..12" EDI-index="12" />
+    <patientidentificatie.identificatienummer2 EDI-constraints="an1..12" EDI-index="13" />
+  </patientidentificatie>
+  <patientadresgegevens EDI-maximum="1" EDI-name="PAD" EDI-index="4">
+    <patientadresgegevens.adres EDI-mandatory="yes" EDI-index="0">
+      <adres.straatnaam EDI-constraints="an1..30" EDI-index="4" />
+      <adres.huisnummer EDI-constraints="an1..8" EDI-index="5" />
+      <adres.postbus EDI-constraints="n1..8" EDI-index="6" />
+      <adres.woonplaats EDI-constraints="a1..20" EDI-mandatory="yes" EDI-index="7" />
+      <adres.postcode EDI-constraints="an1..9" EDI-index="8" />
+      <adres.provincie EDI-constraints="a1..20" EDI-index="9" />
+      <adres.land EDI-constraints="a1..20" EDI-index="10" />
+    </patientadresgegevens.adres>
+    <patientadresgegevens.telefoonnummer EDI-constraints="an1..20" EDI-index="8" />
+  </patientadresgegevens>
+  <Labaanvraag>
+    <Labaanvraag.Afzender>
+	  <!-- Geen idee wat "telecom" hier betekent -->
+      <telecom>????</telecom>
+	  <!-- Het OID van de verzender dat nu ook wordt gebruikt voor HL7v3 berichten -->
+      <id>
+        <root>2.16.840.1.113883.2.4.3.11.21.148.1.2.3.1.1.2.3</root>
+        <extension>1</extension>
+      </id>
+      <name>De Nieuwe Spruyt</name>
+    </Labaanvraag.Afzender>
+    <Labaanvraag.Ontvanger>
+	  <!-- Het Peridos OID zoals dat nu ook wordt gebruikt voor HL7v3 berichten -->
+      <id>
+        <root>2.16.840.1.113883.2.4.3.36.2</root>
+        <extension>1</extension>
+      </id>
+      <name>Peridos productie</name>
+    </Labaanvraag.Ontvanger>
+    <Labaanvraag.Zorgaanbieder>
+	  <!-- XSD: GeenInformatie, Onbekend, Huisartspraktijk, Verloskundigenpraktijk, Ziekenhuis, Echocentrum, Laboratorium -->
+      <ZorgaanbiederType>GeenInformatie</ZorgaanbiederType>
+      <Naam>De Nieuwe Spruyt</Naam>
+      <Adres>
+        <Straat>Dorpstraat</Straat>
+        <Huisnummer>
+          <Huisnummer>2</Huisnummer>
+          <Huisletter></Huisletter>
+          <Toevoeging></Toevoeging>
+		  <!-- XSD: GeenInformatie, Tegenover, Bij -->
+          <Aanduiding>GeenInformatie</Aanduiding>
+        </Huisnummer>
+        <Postcode>1234 AB</Postcode>
+        <PostcodeBuitenland></PostcodeBuitenland>
+        <Plaats>Dinkel</Plaats>
+        <Gemeente></Gemeente>
+		<!-- Peridos: NL, BE, DE, OV -->
+        <Land>NL</Land>
+      </Adres>
+      <OID>
+        <root>2.16.840.1.113883.2.4.3.11.21.148.1.2.3.1.1.2.3</root>
+        <extension>1</extension>
+      </OID>
+      <LVR>1234</LVR>
+      <URA>0001234</URA>
+      <AGB>08123456</AGB>
+      <Zorgmail>00000000</Zorgmail>
+    </Labaanvraag.Zorgaanbieder>
+    <Labaanvraag.Zorgverlener>
+	  <!-- XSD: GeenInformatie, Onbekend, Arts, Huisarts, Kinderarts, Gynaecoloog, Obstetricus, Verloskundige, Echoscopist, Analist -->
+      <ZorgverlenerType>GeenInformatie</ZorgverlenerType>
+      <Voorletters>AM</Voorletters>
+      <Voorvoegsel>van der</Voorvoegsel>
+      <Achternaam>Vlist</Achternaam>
+      <Naam>AM van der Vlist</Naam>
+      <LVR>2345</LVR>
+      <AGB>08001221</AGB>
+      <UZI>000012345</UZI>
+    </Labaanvraag.Zorgverlener>
+    <Labaanvraag.Patient>
+      <BSN>306146812</BSN>
+      <Geboortedatum>
+        <Datum>1992-01-08</Datum>
+		<!-- Geen idee of het voorbeeld goed is -->
+        <TimeZone>UTC</TimeZone>
+      </Geboortedatum>
+      <Geboorteland>NL</Geboorteland>
+      <Geboorteplaats>Dinkel</Geboorteplaats>
+	  <!-- XSD: GeenInformatie, Onbekend, NietTeBeoordelen, Vrouw, Man, Meisje, Jongen -->
+      <Geslacht>Vrouw</Geslacht>
+      <Voorletters>AJ</Voorletters>
+      <Voorvoegsel>van</Voorvoegsel>
+      <Achternaam>Veen</Achternaam>
+      <Adres>
+        <Straat>Dorpstraat</Straat>
+        <Huisnummer>
+          <Huisnummer>4</Huisnummer>
+          <Huisletter></Huisletter>
+          <Toevoeging></Toevoeging>
+		  <!-- XSD: GeenInformatie, Tegenover, Bij -->
+          <Aanduiding>GeenInformatie</Aanduiding>
+        </Huisnummer>
+        <Postcode>1234 AC</Postcode>
+        <PostcodeBuitenland></PostcodeBuitenland>
+        <Plaats>Dinkel</Plaats>
+        <Gemeente></Gemeente>
+        <Land>NL</Land>
+      </Adres>
+      <EMail>avanveen@provider.nl</EMail>
+	  <!-- XSD: GeenInformatie, Onbekend, NoordAfrikaans, OverigAfrikaans, Turks, Aziatisch, Overig, Kaukasisch, Hindoestaans, LatijnsAmerikaans -->
+      <Etniciteit>Kaukasisch</Etniciteit>
+      <Verzekeringsnummer>VZ001234345</Verzekeringsnummer>
+      <Telefoonnummer>+31612345679</Telefoonnummer>
+    </Labaanvraag.Patient>
+    <Labaanvraag.Zwangerschap>
+	  <!-- Is dit een intern bronsysteemnummer? -->
+      <Zwangerschapsnummer>8789885478</Zwangerschapsnummer>
+      <LengteInCm>176</LengteInCm>
+      <GewichtInKg>73.3</GewichtInKg>
+      <ATermeDatum>
+        <Datum>2018-04-12</Datum>
+        <TimeZone>UTC</TimeZone>
+      </ATermeDatum>
+      <Hoeveelling>1</Hoeveelling>
+	  <!-- XSD: GeenInformatie, Monoamniotisch, Diamniotisch -->
+      <Amnioniciteit>GeenInformatie</Amnioniciteit>
+	  <!-- XSD: GeenInformatie, Monochoriaal, Dichoriaal -->
+	  <!-- Dichoriaal zou niet moeten kunnen, er kan alleen een labaanvraag worden gedaan voor eenlingen en monochoriale tweelingen -->
+      <Chorioniciteit>GeenInformatie</Chorioniciteit>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <EerdereTrisomie>Nee</EerdereTrisomie>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <CombinatietestKansGroterDan200>Nee</CombinatietestKansGroterDan200>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <RobertsoniaanseTranslocatieZwangere>Nee</RobertsoniaanseTranslocatieZwangere>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <RobertsoniaanseTranslocatiePartner>Nee</RobertsoniaanseTranslocatiePartner>
+    </Labaanvraag.Zwangerschap>
+    <Labaanvraag.NIPT>
+	  <!-- Deze wordt door Peridos uitgegeven als de labaanvraag definitief gemaakt wordt, dus in dit bericht altijd leeg. -->
+      <Peridoscode></Peridoscode>
+	  <!-- In Peridos: EMC, MUMC, VUMC -->
+	  <!-- Op basis van de regio waarin de zorginstelling ligt kan in Peridos automatisch het laboratorium worden bepaald. -->
+      <Laboratorium>EMC</Laboratorium>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+	  <!-- Mag geen "Nee" zijn omdat er dan één of meer exclusiecriteria van toepassing zijn -->
+      <ExclusiecriteriaGeenVanAlleVanToepassing>Ja</ExclusiecriteriaGeenVanAlleVanToepassing>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+	  <!-- Moet altijd "Ja" zijn, de NIPT bepaalt altijd T21, 18 en 13 -->
+      <KeuzeT21T18T13>Ja</KeuzeT21T18T13>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <KeuzeNevenbevindingen>Nee</KeuzeNevenbevindingen>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+	  <!-- Indien hier "Nee" staat dan kan de labaanvraag niet definitief worden gemaakt. -->
+      <ToestemmingsformulierGetekend>Ja</ToestemmingsformulierGetekend>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <ToestemmingBewarenRestmateriaalNaderGebruik>Nee</ToestemmingBewarenRestmateriaalNaderGebruik>
+    </Labaanvraag.NIPT>
+  </Labaanvraag>
+  <ontvanger EDI-maximum="1" EDI-name="GGO" EDI-index="6">
+    <ontvanger.persoonsnaam EDI-constraints="a1..40" EDI-mandatory="yes" EDI-index="0" />
+    <ontvanger.afdeling EDI-constraints="an1..70" EDI-index="1" />
+    <ontvanger.instellingsnaam EDI-constraints="a1..70" EDI-index="2" />
+    <ontvanger.adres EDI-index="3">
+      <adres.straatnaam EDI-constraints="an1..30" EDI-index="4" />
+      <adres.huisnummer EDI-constraints="an1..8" EDI-index="5" />
+      <adres.postbus EDI-constraints="n1..8" EDI-index="6" />
+      <adres.woonplaats EDI-constraints="a1..20" EDI-mandatory="yes" EDI-index="7" />
+      <adres.postcode EDI-constraints="an1..9" EDI-index="8" />
+      <adres.provincie EDI-constraints="a1..20" EDI-index="9" />
+      <adres.land EDI-constraints="a1..20" EDI-index="10" />
+    </ontvanger.adres>
+    <ontvanger.telefoonnummer EDI-constraints="an1..20" EDI-index="11" />
+  </ontvanger>
+</MEDNIP_1>

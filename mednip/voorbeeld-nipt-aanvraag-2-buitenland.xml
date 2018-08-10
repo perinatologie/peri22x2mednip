@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MEDNIP_1>
+   <envelope envelope.edisyntax="EDIFACT"
+             envelope.acknowledgementrequest="No"
+             envelope.testindicator="Yes"/>
+   <header EDI-name="UNH">
+      <header.messageidentifier messageidentifier.type="MEDNIP" messageidentifier.version="1"/>
+   </header>
+   <afzender>
+      <afzender.persoonsnaam/>
+   </afzender>
+   <datumtijd EDI-name="DET" EDI-index="2">2018-08-10T12:22:24.612+02:00</datumtijd>
+   <Labaanvraag>
+      <Labaanvraag.Afzender>
+         <telecom>02345-7777777</telecom>
+         <name>Vanderbillekens, Den Schone Boreling</name>
+      </Labaanvraag.Afzender>
+      <Labaanvraag.Ontvanger>
+         <name>Peridos productie</name>
+      </Labaanvraag.Ontvanger>
+      <Labaanvraag.Zorgaanbieder>
+         <ZorgaanbiederType>GeenInformatie</ZorgaanbiederType>
+         <Naam>Den Schone Boreling</Naam>
+         <Adres/>
+      </Labaanvraag.Zorgaanbieder>
+      <Labaanvraag.Zorgverlener>
+         <ZorgverlenerType>GeenInformatie</ZorgverlenerType>
+      </Labaanvraag.Zorgverlener>
+      <Labaanvraag.Patient>
+         <BSN>900000004</BSN>
+         <Geboortedatum>
+            <Datum>1992-04-03</Datum>
+            <TimeZone>GeenInformatie</TimeZone>
+         </Geboortedatum>
+         <Voorletters>Veronieke</Voorletters>
+         <Voorvoegsel>den</Voorvoegsel>
+         <Achternaam>Vlaming</Achternaam>
+         <Adres>
+            <Straat>Zavelsteijner Straatweg</Straat>
+            <Huisnummer>
+               <Huisnummer>999</Huisnummer>
+               <Toevoeging/>
+            </Huisnummer>
+            <PostcodeBuitenland>5566XXX</PostcodeBuitenland>
+            <Plaats>Duvelsbeke</Plaats>
+            <Land>BE</Land>
+         </Adres>
+         <Verzekeringsnummer>12341234</Verzekeringsnummer>
+         <Telefoonnummer>GeenInformatie</Telefoonnummer>
+      </Labaanvraag.Patient>
+      <Labaanvraag.Zwangerschap>
+         <LengteInCm>165</LengteInCm>
+         <GewichtInKg>72</GewichtInKg>
+         <ATermeDatum>
+            <Datum>2016-08-03</Datum>
+            <TimeZone>GeenInformatie</TimeZone>
+         </ATermeDatum>
+         <Hoeveelling>1</Hoeveelling>
+         <Amnioniciteit>Monoamniotisch</Amnioniciteit>
+         <Chorioniciteit>Monochoriaal</Chorioniciteit>
+         <EerdereTrisomie>GeenInformatie</EerdereTrisomie>
+         <CombinatietestKansGroterDan200>Nee</CombinatietestKansGroterDan200>
+         <RobertsoniaanseTranslocatieZwangere>GeenInformatie</RobertsoniaanseTranslocatieZwangere>
+         <RobertsoniaanseTranslocatiePartner>Ja</RobertsoniaanseTranslocatiePartner>
+      </Labaanvraag.Zwangerschap>
+      <Labaanvraag.NIPT>
+         <Peridoscode/>
+         <Laboratorium/>
+         <ExclusiecriteriaGeenVanAlleVanToepassing>Ja</ExclusiecriteriaGeenVanAlleVanToepassing>
+         <KeuzeT21T18T13>Ja</KeuzeT21T18T13>
+         <KeuzeNevenbevindingen>Nee</KeuzeNevenbevindingen>
+         <ToestemmingsformulierGetekend>Ja</ToestemmingsformulierGetekend>
+         <ToestemmingBewarenRestmateriaalNaderGebruik>GeenInformatie</ToestemmingBewarenRestmateriaalNaderGebruik>
+      </Labaanvraag.NIPT>
+   </Labaanvraag>
+</MEDNIP_1>

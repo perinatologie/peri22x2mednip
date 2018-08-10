@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MEDNIP_1>
+  <envelope envelope.edisyntax="EDIFACT" envelope.acknowledgementrequest="No" envelope.testindicator="Yes" />
+  <header EDI-name="UNH">
+    <header.messageidentifier messageidentifier.type="MEDECH" messageidentifier.version="1"/>
+  </header>
+  <afzender>
+    <afzender.persoonsnaam/>
+  </afzender>
+  <datumtijd EDI-name="DET" EDI-index="2" />
+  <Labaanvraag>
+    <Labaanvraag.Afzender>
+      <!-- Geen idee wat "telecom" hier betekent -->
+	  <telecom>????</telecom>
+      <name>De Nieuwe Spruyt</name>
+    </Labaanvraag.Afzender>
+    <Labaanvraag.Ontvanger>
+      <name>Peridos productie</name>
+    </Labaanvraag.Ontvanger>
+    <Labaanvraag.Zorgaanbieder>
+      <!-- XSD: GeenInformatie, Onbekend, Huisartspraktijk, Verloskundigenpraktijk, Ziekenhuis, Echocentrum, Laboratorium -->
+	  <!-- Is voor Peridos geen relevante informatie -->
+	  <ZorgaanbiederType>GeenInformatie</ZorgaanbiederType>
+      <Naam>De Nieuwe Spruyt</Naam>
+      <Adres />
+    </Labaanvraag.Zorgaanbieder>
+    <Labaanvraag.Zorgverlener>
+	  <!-- XSD: GeenInformatie, Onbekend, Huisartspraktijk, Verloskundigenpraktijk, Ziekenhuis, Echocentrum, Laboratorium -->
+	  <!-- Dit is voor Peridos geen relevante informatie -->
+      <ZorgverlenerType>GeenInformatie</ZorgverlenerType>
+    </Labaanvraag.Zorgverlener>
+    <Labaanvraag.Patient>
+      <BSN>30614812</BSN>
+      <Geboortedatum>
+        <Datum>1992-01-08</Datum>
+		<!-- Geen idee of het voorbeeld goed is -->
+        <TimeZone>UTC</TimeZone>
+      </Geboortedatum>
+      <Voorletters>AJ</Voorletters>
+      <Voorvoegsel>van</Voorvoegsel>
+      <Achternaam>Veen</Achternaam>
+	  <!-- De adresgegevens van de zwangere zijn verplichte velden op het formulier, dus het zou handig zijn om die hier ook verplicht te maken -->
+<!--	  <Adres>
+        <Straat>Dorpstraat</Straat>
+        <Huisnummer>
+          <Huisnummer>4</Huisnummer>
+          <Huisletter></Huisletter>
+          <Toevoeging></Toevoeging>
+        </Huisnummer>
+        <Postcode>1234 AC</Postcode>
+        <PostcodeBuitenland></PostcodeBuitenland>
+        <Plaats>Dinkel</Plaats>
+        <Land>NL</Land>
+	  </Adres> -->
+      <Adres />
+      <Verzekeringsnummer>VZ001234345</Verzekeringsnummer>
+      <Telefoonnummer>+31612345679</Telefoonnummer>
+    </Labaanvraag.Patient>
+    <Labaanvraag.Zwangerschap>
+      <LengteInCm>176</LengteInCm>
+      <GewichtInKg>73.3</GewichtInKg>
+      <ATermeDatum>
+        <Datum>2018-04-12</Datum>
+        <TimeZone>UTC</TimeZone>
+      </ATermeDatum>
+      <Hoeveelling>1</Hoeveelling>
+	  <!-- XSD: GeenInformatie, Monoamniotisch, Diamniotisch -->
+      <Amnioniciteit>GeenInformatie</Amnioniciteit>
+	  <!-- XSD: GeenInformatie, Monochoriaal, Dichoriaal -->
+	  <!-- Dichoriaal zou niet moeten kunnen, er kan alleen een labaanvraag worden gedaan voor eenlingen en monochoriale tweelingen -->
+      <Chorioniciteit>GeenInformatie</Chorioniciteit>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <EerdereTrisomie>Nee</EerdereTrisomie>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <CombinatietestKansGroterDan200>Nee</CombinatietestKansGroterDan200>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <RobertsoniaanseTranslocatieZwangere>Nee</RobertsoniaanseTranslocatieZwangere>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <RobertsoniaanseTranslocatiePartner>GeenInformatie</RobertsoniaanseTranslocatiePartner>
+    </Labaanvraag.Zwangerschap>
+    <Labaanvraag.NIPT>
+	  <!-- Deze wordt door Peridos uitgegeven als de labaanvraag definitief gemaakt wordt, dus in dit bericht altijd leeg. -->
+      <Peridoscode></Peridoscode>
+	  <!-- In Peridos: EMC, MUMC, VUMC -->
+	  <!-- Op basis van de regio waarin de zorginstelling ligt kan in Peridos automatisch het laboratorium worden bepaald. -->
+      <Laboratorium>EMC</Laboratorium>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+	  <!-- Mag geen "Nee" zijn omdat er dan één of meer exclusiecriteria van toepassing zijn -->
+      <ExclusiecriteriaGeenVanAlleVanToepassing>Ja</ExclusiecriteriaGeenVanAlleVanToepassing>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+	  <!-- Moet altijd "Ja" zijn, de NIPT bepaalt altijd T21, 18 en 13 -->
+      <KeuzeT21T18T13>Ja</KeuzeT21T18T13>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <KeuzeNevenbevindingen>Nee</KeuzeNevenbevindingen>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+	  <!-- Indien hier "Nee" staat dan kan de labaanvraag niet definitief worden gemaakt. -->
+      <ToestemmingsformulierGetekend>Ja</ToestemmingsformulierGetekend>
+	  <!-- XSD: GeenInformatie, Ja, Nee -->
+      <ToestemmingBewarenRestmateriaalNaderGebruik>Nee</ToestemmingBewarenRestmateriaalNaderGebruik>
+    </Labaanvraag.NIPT>
+  </Labaanvraag>
+</MEDNIP_1>
