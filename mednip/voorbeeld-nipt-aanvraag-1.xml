@@ -9,7 +9,7 @@
    <afzender>
       <afzender.persoonsnaam/>
    </afzender>
-   <datumtijd EDI-name="DET" EDI-index="2">2018-08-10T12:22:18.305+02:00</datumtijd>
+   <datumtijd EDI-name="DET" EDI-index="2">2018-11-21T09:10:18.788+01:00</datumtijd>
    <Labaanvraag>
       <Labaanvraag.Afzender>
          <telecom>020-7777777</telecom>
@@ -50,7 +50,7 @@
       </Labaanvraag.Patient>
       <Labaanvraag.Zwangerschap>
          <LengteInCm>171</LengteInCm>
-         <GewichtInKg>78.5</GewichtInKg>
+         <GewichtInKg>79.5</GewichtInKg>
          <ATermeDatum>
             <Datum>2016-08-03</Datum>
             <TimeZone>GeenInformatie</TimeZone>

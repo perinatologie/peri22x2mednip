@@ -157,13 +157,13 @@
                     <LengteInCm>
                         <xsl:value-of select="value[@concept = 'peri22-dataelement-20212']/@value/string()"/>
                     </LengteInCm>
-                    <!-- Uitgangspunt: alleen laatste consult is bijgevoegd. -->
-                    <xsl:for-each select="//section[@type = 'consult']/values">
-                        <GewichtInKg>
-                            <!-- Eventuele decimale komma vervangen door punt -->
-                            <xsl:value-of select="replace(value[@concept = 'peri22-dataelement-20211']/@value/string(), ',', '.')"/>
-                        </GewichtInKg>
-                    </xsl:for-each>
+                    <!-- Uitgangspunt: datum staat in ieder consult, gewicht wordt gehaald uit laatste consult. -->
+                    <xsl:variable name="laatsteConsultDatum" select="max(//value[@concept='peri22-dataelement-80737']/xs:date(@value))"/>
+                    <xsl:variable name="laatsteConsult" select="//value[@concept='peri22-dataelement-80737'][xs:date(@value) = $laatsteConsultDatum]/ancestor::section"/>
+                    <GewichtInKg>
+                        <!-- Eventuele decimale komma vervangen door punt -->
+                        <xsl:value-of select="replace($laatsteConsult//value[@concept = 'peri22-dataelement-20211']/@value/string(), ',', '.')"/>
+                    </GewichtInKg>
                     <ATermeDatum>
                         <Datum>
                             <!-- Neem definities a terme datum wanneer beschikbaar, anders gewone a terme datum -->
