@@ -77,11 +77,21 @@
                     </Naam>
                 </xsl:for-each>
                 <Adres/>
+                <xsl:for-each select=".//section[@type = 'inzender']/values">
+                    <AGB>
+                        <xsl:value-of select="value[@concept = 'peri22x-praktijk-agb']/@value/string()"/>
+                    </AGB>
+                </xsl:for-each>
             </Labaanvraag.Zorgaanbieder>
             <Labaanvraag.Zorgverlener>
                 <!-- XSD: GeenInformatie, Onbekend, Huisartspraktijk, Verloskundigenpraktijk, Ziekenhuis, Echocentrum, Laboratorium -->
                 <!-- Dit is voor Peridos geen relevante informatie -->
                 <ZorgverlenerType>GeenInformatie</ZorgverlenerType>
+                <xsl:for-each select=".//section[@type = 'inzender']/values">
+                    <AGB>
+                        <xsl:value-of select="value[@concept = 'peri22x-gebruiker-agb']/@value/string()"/>
+                    </AGB>
+                </xsl:for-each>
             </Labaanvraag.Zorgverlener>
             <xsl:for-each select=".//section[@type = 'client']/values">
                 <Labaanvraag.Patient>
