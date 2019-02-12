@@ -158,11 +158,18 @@
                         <xsl:value-of select="value[@concept = 'peri22-dataelement-20212']/@value/string()"/>
                     </LengteInCm>
                     <!-- Uitgangspunt: datum staat in ieder consult, gewicht wordt gehaald uit laatste consult. -->
-                    <xsl:variable name="laatsteConsultDatum" select="max(//value[@concept='peri22-dataelement-80737']/xs:date(@value))"/>
-                    <xsl:variable name="laatsteConsult" select="//value[@concept='peri22-dataelement-80737'][xs:date(@value) = $laatsteConsultDatum]/ancestor::section"/>
+                    <!--
+                        JF: laatsteConsult methode tbv laatsteGewicht werkt nog niet betrouwbaar
+                        Laatste consult is er misch niet, of heeft geen gewicht.
+                        Ik verwijder onderstaande even ten gunste van een nieuwe en eenvoudigere peri22x-laatste-gewicht
+                        tot dat er een elegantere oplossing is, liefst in XSLT
+                        <xsl:variable name="laatsteConsultDatum" select="max(//value[@concept='peri22-dataelement-80737']/xs:date(@value))"/>
+                        <xsl:variable name="laatsteConsult" select="//value[@concept='peri22-dataelement-80737'][xs:date(@value) = $laatsteConsultDatum]/ancestor::section"/>
+                    -->
                     <GewichtInKg>
                         <!-- Eventuele decimale komma vervangen door punt -->
-                        <xsl:value-of select="replace($laatsteConsult//value[@concept = 'peri22-dataelement-20211']/@value/string(), ',', '.')"/>
+                        <!-- JF: zie comment hierboven <xsl:value-of select="replace($laatsteConsult//value[@concept = 'peri22-dataelement-20211']/@value/string(), ',', '.')"/> -->
+                        <xsl:value-of select="value[@concept = 'peri22x-laatste-gewicht']/@value/string()"/>
                     </GewichtInKg>
                     <ATermeDatum>
                         <Datum>
