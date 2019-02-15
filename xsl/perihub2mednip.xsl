@@ -221,7 +221,7 @@
                     </Chorioniciteit>
                     <!-- XSD: GeenInformatie, Ja, Nee -->
                     <EerdereTrisomie>
-                        <xsl:for-each select="value[@concept = 'peri22-dataelement-20130']/@value/string()">
+                        <xsl:for-each select="value[@concept = 'peri22-dataelement-82307']/@value/string()">
                             <xsl:call-template name="BoolToEnum"/>
                         </xsl:for-each>
                     </EerdereTrisomie>
