@@ -151,7 +151,7 @@
                         <xsl:value-of select="value[@concept = 'peri22x-verzekeringsnummer']/@value/string()"/>
                     </Verzekeringsnummer>
                     <Telefoonnummer>
-                        <xsl:variable name="tel" select="value[@concept = 'peri22x-telefoonnummerclient']/@value/string()"/>
+                        <xsl:variable name="tel" select="value[@concept = 'peri22x-telefoonnummer']/@value/string()"/>
                         <xsl:choose>
                             <xsl:when test="string-length($tel) > 0">
                                 <xsl:value-of select="$tel"/>
